@@ -34,10 +34,6 @@ export default function Home() {
         const payload = JSON.parse(frame.body) as Message;
         setMessages((prev) => [...prev, payload]);
       });
-      client.publish({
-        destination: "/app/chat.send",
-        body: JSON.stringify({ sender: "system", content: "A user connected" }),
-      });
     };
 
     client.onStompError = () => {

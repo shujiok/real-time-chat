@@ -26,7 +26,7 @@ Monorepo scaffold for a real-time chat app.
 ### Frontend
 
 ```bash
-cd /home/runner/work/real-time-chat/real-time-chat/frontend
+cd frontend
 npm install
 npm run dev
 ```
@@ -34,7 +34,7 @@ npm run dev
 ### Backend
 
 ```bash
-cd /home/runner/work/real-time-chat/real-time-chat/backend
+cd backend
 mvn spring-boot:run
 ```
 
@@ -43,7 +43,7 @@ mvn spring-boot:run
 ### Frontend
 
 ```bash
-cd /home/runner/work/real-time-chat/real-time-chat/frontend
+cd frontend
 npm run lint
 npm run format:check
 ```
@@ -51,7 +51,7 @@ npm run format:check
 ### Backend
 
 ```bash
-cd /home/runner/work/real-time-chat/real-time-chat/backend
+cd backend
 mvn checkstyle:check
 mvn spotless:check
 ```
@@ -59,7 +59,6 @@ mvn spotless:check
 ## Run with Docker Compose
 
 ```bash
-cd /home/runner/work/real-time-chat/real-time-chat
 docker compose up --build
 ```
 
