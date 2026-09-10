@@ -46,6 +46,7 @@ mvn spring-boot:run
 cd frontend
 npm run lint
 npm run format:check
+npm test
 ```
 
 ### Backend
@@ -64,7 +65,7 @@ docker compose up --build
 
 - Frontend: http://localhost:3000
 - Backend health: http://localhost:8000/api/health
-- WebSocket endpoint: `ws://localhost:8000/ws-chat`
+- WebSocket endpoint (browser): `ws://localhost:3000/ws-chat`
 
 ## ECS deployment outline
 
@@ -74,12 +75,12 @@ docker compose up --build
 2. Create an ECS cluster (Fargate or EC2 launch type).
 3. Create task definitions:
    - Backend container exposing `8000`
-   - Frontend container exposing `3000` and `NEXT_PUBLIC_WS_URL` set to backend service URL
+   - Frontend container exposing `3000`, with `BACKEND_INTERNAL_URL` set to the backend service URL
 4. Create ECS services for each task definition behind an Application Load Balancer.
 5. Configure target groups/listeners:
    - Route frontend traffic to port `3000`
    - Route backend API/WebSocket traffic to port `8000`
-6. Ensure security groups allow ALB-to-service traffic for required ports.
+6. Configure backend allowed WebSocket origins using `APP_WEBSOCKET_ALLOWED_ORIGINS`.
 7. Enable CloudWatch logs for both services.
 
 ## Quick verification

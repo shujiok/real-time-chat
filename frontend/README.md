@@ -13,12 +13,14 @@ App runs on `http://localhost:3000`.
 
 ## Environment
 
-- `NEXT_PUBLIC_WS_URL` (default: `http://localhost:8000/ws-chat`)
+- `NEXT_PUBLIC_WS_URL` (default: `/ws-chat`)
+- `BACKEND_INTERNAL_URL` (default: `http://localhost:8000`, used by Next.js rewrites)
 
 ## Quality checks
 
 ```bash
-npm run lint
 npm run format:check
+npm run lint
+npm test
 npm run build
 ```

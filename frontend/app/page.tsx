@@ -11,7 +11,7 @@ type Message = {
   timestamp?: string;
 };
 
-const wsUrl = process.env.NEXT_PUBLIC_WS_URL ?? "http://localhost:8000/ws-chat";
+const wsUrl = process.env.NEXT_PUBLIC_WS_URL ?? "/ws-chat";
 
 export default function Home() {
   const clientRef = useRef<Client | null>(null);
